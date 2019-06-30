@@ -1,82 +1,100 @@
-require 'awesome_print'
-require 'byebug'
-require 'colorize'
-class Sudoku
-# Takes a board as a string in the format
-# you see in the puzzle file. Returns
-# something representing a board after
-# your solver has tried to solve it.
-# How you represent your board is up to you!
-attr_accessor :rows,:cols,:boxes, :board_string,:possibe_num
-  def initialize(board_string)
-    num=(1..9)to_a
-    @empty_space=[]
-    @board_string=board_string
-    @possibe_num=[]
-    @rows=[]
-    @cols=[]
-    @boxes=[]
-    @board_string.split("").each_slice(9) do |elements|
-      @rows<< elements
-    end  
+# require 'byebug'
+# require 'colorize'
+# class Sudoku
+#   attr_accessor :board_string,:grids,:rows,:cols,:boxes
+#     def initialize(board_string)
+#       @grids=board_string.split('')
+#       @nums=(1..9).to_a
+#       @rows=[]
+#       @cols=[]
+#       @boxes={}
+
+#       count = 0
+#       # creating rows
+#       9.times do |index|
+#         # a_i=("A".."I").to_a
+#         # name=a_i[index].to_s
+#         temp_arr= []
+#         9.times do |num|
+#           temp_arr << @grids[count]
+#           count += 1
+#         end
+#         @rows << temp_arr
+#       end
+
+#       # creating cols
+#       9.times do |index|
+#         temp_arr=[]
+#         9.times do |num|
+#           temp_arr << @rows[num][index] #A1
+#         end
+#         @cols << temp_arr
+#       end
+
+#       count=1
+#       3.times do
+#         row_index= 0
+#         col_index = 0
+#         3.times do ||
+#           @boxes[count.to_s]=[@rows[row_index][col_index,3],@rows[row_index+1][col_index,3],@rows[row_index+2][col_index,3]].flatten
+#           col_index += 3
+#           count+=1
+#         end
+#         row_index += 3
+#       end
+
+#     #  check possiblities 
+#     @rows.each_with_index do |row,row_index|
+#       row.each_with_index do |ele,ele_index|
+#         if ele=="-"
+#           ele=@nums-(row+@cols[ele_index])
+#         else
+#           ele=ele
+#       end
+#     end
+#       # @grids.each do |ele|
+#       #   if ele == "-"
+#       #     ele = nil
+#       #   else ele=ele.to_i
+#       #   end
+#       # end
+#           # p nine_boxes
+#       # count = 1
+#       # @nine_boxes.each do |box|
+#       #   p "box#{count}:#{box}"
+#       #   count += 1
+#       # end
+
+#     end
+  
     
-  9.times do |n|
-      temp_row=[]
-      @rows.each do |row|
-        temp_row<<row[n]
-      end
-      @cols<<temp_row
-  end
+#     def solve
+#     end
+  
+#     def finished?
+#     end
+  
+#     def board
+#     end
+  
+#     def to_s
+#       @grids.each_slice(9) do |row|
+#         row.each do |ele|
+#           print "|"
+#           if ele=="-" || ele.length > 1
+#             print " #{ele} ".red
+#           else
+#           print " #{ele} ".white
+#           end
+#         end
+#         print "|"
+#         puts
+#       end
+#       p @rows.flatten.length
+#     end
+# end
 
-  3.times do
-    temp_box_1=[]
-    temp_box_2=[]
-    temp_box_3=[]
-    3.times do |row|
-      temp_box_1<<rows[row][0,3]
-      temp_box_2<<rows[row+3][3,3]
-      temp_box_3<<rows[row+6][6,3]
-    end
-    @boxes.push temp_box_1.flatten,temp_box_2.flatten,temp_box_3.flatten
-  end
-end
 
 
-  def possibe_num
-    # @row.split("").each do |ele|
-    #   if ele == "-"
-    #     <<
-    # end
-    @rows.includes
-  end
-    
-  def solve
 
-  end
-
-  # Returns a boolean indicating whether or not the provided board is solved.
-  def finished?
-
-  end
-
-  def board
-    # return current state
-  end
-
-  # Returns a string representing the current state of the board, well formatted for output to the screen. No `puts` here!
-  def to_s
-    @rows.each do |row|
-      row.each do |ele|
-        print "|"
-        if ele=="-"
-          print " #{ele} ".red
-        else
-        print " #{ele} "
-        end
-      end
-      print "|"
-      puts
-    end
-  end
-end
 
