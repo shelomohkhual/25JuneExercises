@@ -1,5 +1,4 @@
-require_relative 'taha_sudoku'
-
+require_relative 'taha_sudoku.rb'
 # The sudoku puzzles that your program will solve can be found
 # in the sudoku_puzzles.txt file.
 #
@@ -17,9 +16,10 @@ board_string = File.readlines('sudoku_puzzles.txt')
 board_string.each do |i|
 	p "Next sudoku input: " + i.chomp
 	game = Sudoku.new(i.chomp)
-
+	# p game.get_possible_numbers(8,7)
 	game.solve
-	puts game
+	puts game.board
+	
 end
 
 # --5-3--819-285--6-6----4-5---74-283-34976---5--83--49-15--87--2-9----6---26-495-3
